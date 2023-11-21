@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-stock.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-gantt.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-map.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.1/js/anychart-data-adapter.min.js"></script>
+    <script defer src="/scripts/three.r134.min.js"></script>
+    <script defer src="/scripts/vanta.net.min.js"></script>
+    <script defer src="/scripts/script.js"></script>
+    <link rel="stylesheet" href="/style/normalize.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <title>SupplyOptimizer</title>
+</head>
+
+<body class="body">
+    <div class="body__background" id="background">
+        <section class="form__section">
+            <div class="container form__container">
+                <form class="form">
+                    <div class="form__title">SupplyOptimizer</div>
+                    <div class="form__subtitle">Удобный инструмент для решения задач управления ресурсами.</div>
+                    <label class="form__label" for="annualDemand">
+                        <input class="form__input" type="text" id="annualDemand" name="annualDemand" autocomplete="off"
+                            required>
+                        <span class="form__span">
+                            Годовой спрос
+                        </span>
+                    </label>
+
+                    <label class="form__label" for="orderCost">
+                        <input class="form__input" type="text" id="orderCost" name="orderCost" autocomplete="off"
+                            required>
+                        <span class="form__span">
+                            Стоимость заказа
+                        </span>
+                    </label>
+
+                    <label class="form__label" for="holdingCost">
+                        <input class="form__input" type="text" id="holdingCost" name="holdingCost" autocomplete="off"
+                            required>
+                        <span class="form__span">
+                            Издержки хранения за год за единицу товара
+                        </span>
+                    </label>
+
+                    <label class="form__label" for="processingTime">
+                        <input class="form__input" type="text" id="processingTime" name="processingTime"
+                            autocomplete="off" required>
+                        <span class="form__span">
+                            Время обработки заказа в днях
+                        </span>
+                    </label>
+
+                    <button class="form__button" type="submit">Рассчитать</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
