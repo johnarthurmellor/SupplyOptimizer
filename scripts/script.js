@@ -55,21 +55,18 @@
     submitBtn.addEventListener('click', function(e) {
         e.preventDefault();
 
-        let dailyDemand = annualDemand.value / 300;
-            OrderSize = Math.sqrt(2 * orderCost.value * (annualDemand.value / holdingCost.value)),
-            averageInventory = OrderSize / 2,
-            replenishmentFrequencyInYears = OrderSize / annualDemand.value,
-            replenishmentFrequencyInDays = replenishmentFrequencyInYears * 300,
-            annualHoldingCosts = (orderCost.value * annualDemand.value) / OrderSize + holdingCost.value * averageInventory,
-            reorderPoint = 0;
-
-        if (processingTime.value < Math.floor(replenishmentFrequencyInDays)) {
-            reorderPoint = processingTime.value * dailyDemand;
-        } else {
-            reorderPoint = (processingTime.value - Math.floor(processingTime.value / replenishmentFrequencyInDays) * replenishmentFrequencyInDays) * dailyDemand;
-        }
+        let yearDuration = 300,
+            dailyDemand = annualDemand.value / yearDuration;
+            orderSize = Math.sqrt(2 * orderCost.value * (annualDemand.value / holdingCost.value)),
+            averageInventory = orderSize / 2,
+            replenishmentFrequencyInYears = orderSize / annualDemand.value,
+            replenishmentFrequencyInDays = replenishmentFrequencyInYears * yearDuration,
+            annualHoldingCosts = (orderCost.value * annualDemand.value) / orderSize + holdingCost.value * averageInventory,
+            reorderPoint = processingTime.value < Math.floor(replenishmentFrequencyInDays) 
+                           ? reorderPoint = processingTime.value * dailyDemand 
+                           : (processingTime.value - Math.floor(processingTime.value / replenishmentFrequencyInDays) * replenishmentFrequencyInDays) * dailyDemand;
         
-        console.log('Оптимальный размер заказа:', Math.ceil(OrderSize));
+        console.log('Оптимальный размер заказа:', Math.ceil(orderSize));
         console.log('Оптимальный средний уровень запаса:',  Math.ceil(averageInventory));
         console.log('Оптимальная периодичность пополнения запасов (в днях):', Math.floor(replenishmentFrequencyInDays));
         console.log('Точка заказа:', Math.floor(reorderPoint));

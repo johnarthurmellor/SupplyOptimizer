@@ -35,7 +35,7 @@ body {
 
 .form__title {
     color: #eee;
-    font-size: 3.9vw;
+    font-size: 4.5vw;
     white-space: nowrap;
     font-weight: 700;
   }
@@ -48,7 +48,6 @@ body {
   }
 
 .form__label {
-    max-width: 1024px;
     position: relative;
     display: block;
     color: #d0d1d5;
@@ -85,7 +84,7 @@ body {
     font-weight: 600;
     background-color: #7e84e3;
     color: white;
-    padding: 15px;
+    padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
