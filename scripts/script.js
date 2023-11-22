@@ -55,19 +55,25 @@
     submitBtn.addEventListener('click', function(e) {
         e.preventDefault();
 
-        let optimalOrderSize = Math.sqrt(2 * orderCost.value * (annualDemand.value / holdingCost.value)),
-            optimalAverageInventoryLevel = optimalOrderSize / 2,
-            optimalReplenishmentFrequency_Years = optimalOrderSize / annualDemand.value,
-            optimalReplenishmentFrequency_Days = optimalReplenishmentFrequency_Years * 300,
-            reorderPoint,
-            annualWarehouseHoldingSosts;
+        let dailyDemand = annualDemand.value / 300;
+            OrderSize = Math.sqrt(2 * orderCost.value * (annualDemand.value / holdingCost.value)),
+            averageInventory = OrderSize / 2,
+            replenishmentFrequencyInYears = OrderSize / annualDemand.value,
+            replenishmentFrequencyInDays = replenishmentFrequencyInYears * 300,
+            annualHoldingCosts = (orderCost.value * annualDemand.value) / OrderSize + holdingCost.value * averageInventory,
+            reorderPoint = 0;
 
-        console.log('Оптимальный размер заказа:', optimalOrderSize);
-        console.log('Оптимальный средний уровень запаса:',  optimalAverageInventoryLevel);
-        console.log('Оптимальная периодичность пополнения запасов (в годах):', optimalReplenishmentFrequency_Years);
-        console.log('Оптимальная периодичность пополнения запасов (в днях):', optimalReplenishmentFrequency_Days);
-        console.log('Точка заказа:', 0);
-        console.log('Общегодовые издержки по складу:', 0);
+        if (processingTime.value < Math.floor(replenishmentFrequencyInDays)) {
+            reorderPoint = processingTime.value * dailyDemand;
+        } else {
+            reorderPoint = (processingTime.value - Math.floor(processingTime.value / replenishmentFrequencyInDays) * replenishmentFrequencyInDays) * dailyDemand;
+        }
+        
+        console.log('Оптимальный размер заказа:', Math.ceil(OrderSize));
+        console.log('Оптимальный средний уровень запаса:',  Math.ceil(averageInventory));
+        console.log('Оптимальная периодичность пополнения запасов (в днях):', Math.floor(replenishmentFrequencyInDays));
+        console.log('Точка заказа:', Math.floor(reorderPoint));
+        console.log('Общегодовые издержки по складу:', Math.ceil(annualHoldingCosts));
     })
 
 })();
