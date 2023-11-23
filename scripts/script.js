@@ -47,6 +47,7 @@
     })
 
     const submitBtn = document.querySelector('.form__button'),
+          periodDuration = document.querySelector('.form__input[name="periodDuration"]'),
           annualDemand = document.querySelector('.form__input[name="annualDemand"]'),
           orderCost = document.querySelector('.form__input[name="orderCost"]'),
           holdingCost = document.querySelector('.form__input[name="holdingCost"]'),
@@ -55,7 +56,7 @@
     submitBtn.addEventListener('click', function(e) {
         e.preventDefault();
 
-        let yearDuration = 300,
+        let yearDuration = periodDuration.value,
             dailyDemand = annualDemand.value / yearDuration;
             orderSize = Math.sqrt(2 * orderCost.value * (annualDemand.value / holdingCost.value)),
             averageInventory = orderSize / 2,
