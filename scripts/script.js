@@ -15,6 +15,21 @@
         maxDistance: 25.00,
         showDots: false
     });
+
+    function getWorkingDays(numDays) {
+        const weekdays = [];
+        const currentDate = new Date(new Date().getFullYear(), 0, 1);
+      
+        while (weekdays.length < numDays) {
+          if (currentDate.getDay() >= 1 && currentDate.getDay() <= 5) {
+            weekdays.push(new Date(currentDate));
+          }
+      
+          currentDate.setDate(currentDate.getDate() + 1);
+        }
+      
+        return weekdays;
+    }
     
     const labels = document.querySelectorAll('.form__label');
 
@@ -72,6 +87,27 @@
         console.log('Оптимальная периодичность пополнения запасов (в днях):', Math.floor(replenishmentFrequencyInDays));
         console.log('Точка заказа:', Math.floor(reorderPoint));
         console.log('Общегодовые издержки по складу:', Math.ceil(annualHoldingCosts));
-    })
 
+        // create data
+        var data = [
+            ["January", 10000],
+            ["February", 12000],
+            ["March", 18000],
+            ["April", 11000],
+            ["May", 9000]
+        ];
+            
+        // create a chart
+        chart = anychart.line();
+        
+        // create a line series and set the data
+        var series = chart.line(data);
+        
+        // set the container id
+        chart.container("chartContainer");
+        
+        // initiate drawing the chart
+        chart.draw();
+
+    })
 })();

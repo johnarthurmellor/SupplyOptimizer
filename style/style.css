@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -18,7 +20,7 @@ body {
 }
 
 .form__container {
-    padding-top: 25px;
+    padding: 25px 0 25px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +28,7 @@ body {
 
 .form {
     background-color: #3f4480;
-    border-radius: 8px;
+    border-radius: 20px;
     padding: 2.5rem;
     text-align: left;
     width: 50vw;
@@ -34,14 +36,14 @@ body {
 }
 
 .form__title {
-    color: #eee;
+    color: #e9eaf0;
     font-size: 4.5vw;
     white-space: nowrap;
     font-weight: 700;
   }
   
   .form__subtitle {
-    color: #eee;
+    color: #e9eaf0;
     font-size: 24px;
     margin-top: 20px;
     margin-bottom: 2.5rem;
@@ -50,7 +52,7 @@ body {
 .form__label {
     position: relative;
     display: block;
-    color: #d0d1d5;
+    color: #d4d5e2;
 }
 
 .form__label:not(:last-child) {
@@ -64,7 +66,7 @@ body {
     margin-bottom: 1.25rem;
     box-sizing: border-box;
     border: 1px solid transparent;
-    border-radius: 4px;
+    border-radius: 10px;
     color: #e5e5e7;
     background-color: #2f3042;
 }
@@ -77,6 +79,7 @@ body {
 .form__input:focus + .form__span,
 .form__span.active {
     transform: translate(-15%, -2.6rem) scale(.68);
+    color: #e9eaf0;
 }
 
 .form__button {
@@ -86,7 +89,7 @@ body {
     color: white;
     padding: 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color .3s ease;
     width: 100%;
@@ -103,7 +106,7 @@ body {
 .form__span {
     position: absolute;
     width: 100%;
-    top: calc(100% / 5);
+    top: calc(100% / 4.6);
     left: .9rem;
     transition: transform .3s ease;
 }
