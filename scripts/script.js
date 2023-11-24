@@ -88,26 +88,5 @@
         console.log('Точка заказа:', Math.floor(reorderPoint));
         console.log('Общегодовые издержки по складу:', Math.ceil(annualHoldingCosts));
 
-        // create data
-        var data = [
-            ["January", 10000],
-            ["February", 12000],
-            ["March", 18000],
-            ["April", 11000],
-            ["May", 9000]
-        ];
-            
-        // create a chart
-        chart = anychart.line();
-        
-        // create a line series and set the data
-        var series = chart.line(data);
-        
-        // set the container id
-        chart.container("chartContainer");
-        
-        // initiate drawing the chart
-        chart.draw();
-
     })
 })();
