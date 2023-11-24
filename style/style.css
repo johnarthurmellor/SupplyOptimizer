@@ -14,13 +14,16 @@ body {
     min-height: 100vh;
 }
 
+.form__section {
+    padding-top: 120px;
+}
+
 .container {
     width: 100%;
     margin: 0 auto;
 }
 
 .form__container {
-    padding: 25px 0 25px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,13 +34,13 @@ body {
     border-radius: 20px;
     padding: 2.5rem;
     text-align: left;
-    width: 50vw;
+    width: 70vw;
     min-width: 250px;
 }
 
 .form__title {
     color: #e9eaf0;
-    font-size: 4.5vw;
+    font-size: 5vw;
     white-space: nowrap;
     font-weight: 700;
   }
@@ -49,26 +52,36 @@ body {
     margin-bottom: 2.5rem;
   }
 
+.inputs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.inputs__left, .inputs__right {
+    width: 48%;
+}
+
 .form__label {
     position: relative;
     display: block;
     color: #d4d5e2;
 }
 
-.form__label:not(:last-child) {
-    margin-bottom: 1.25rem;
-}
-
 .form__input {
     font-size: 20px;
     width: 100%;
     padding: 16px;
-    margin-bottom: 1.25rem;
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: 10px;
     color: #e5e5e7;
     background-color: #2f3042;
+}
+
+.form__label:not(:last-child) {
+    margin-bottom: 40px;
 }
 
 .form__input:focus {
@@ -87,7 +100,7 @@ body {
     font-weight: 600;
     background-color: #7e84e3;
     color: white;
-    padding: 15px;
+    padding: 10px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -106,7 +119,7 @@ body {
 .form__span {
     position: absolute;
     width: 100%;
-    top: calc(100% / 4.6);
+    top: calc(100% / 3.4);
     left: .9rem;
     transition: transform .3s ease;
 }

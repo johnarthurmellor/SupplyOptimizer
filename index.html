@@ -18,49 +18,52 @@
             <div class="container form__container">
                 <form class="form">
                     <div class="form__title">SupplyOptimizer</div>
-                    <div class="form__subtitle">Удобный инструмент для решения задач управления ресурсами.</div>
+                    <div class="form__subtitle">Удобный инструмент для решения задач управления ресурсами</div>
 
-                    <label class="form__label" for="periodDuration">
-                        <input class="form__input" type="text" id="periodDuration" name="periodDuration" autocomplete="off" required>
-                        <span class="form__span">
-                            Длина периода в днях
-                        </span>
-                    </label>
-
-                    <label class="form__label" for="annualDemand">
-                        <input class="form__input" type="text" id="annualDemand" name="annualDemand" autocomplete="off" required>
-                        <span class="form__span">
-                            Спрос за период
-                        </span>
-                    </label>
-
-                    <label class="form__label" for="orderCost">
-                        <input class="form__input" type="text" id="orderCost" name="orderCost" autocomplete="off" required>
-                        <span class="form__span">
-                            Стоимость заказа
-                        </span>
-                    </label>
-
-                    <label class="form__label" for="holdingCost">
-                        <input class="form__input" type="text" id="holdingCost" name="holdingCost" autocomplete="off" required>
-                        <span class="form__span">
-                            Издержки хранения единицы товара
-                        </span>
-                    </label>
-
-                    <label class="form__label" for="processingTime">
-                        <input class="form__input" type="text" id="processingTime" name="processingTime" autocomplete="off" required>
-                        <span class="form__span">
-                            Время обработки заказа
-                        </span>
-                    </label>
-
-                    <button class="form__button" type="submit">Рассчитать</button>
+                    <div class="form__container inputs">
+                        <div class="inputs__left">
+                            <label class="form__label" for="periodDuration">
+                                <input class="form__input" type="text" id="periodDuration" name="periodDuration" autocomplete="off" required>
+                                <span class="form__span">
+                                    Длина периода в днях
+                                </span>
+                            </label>
+        
+                            <label class="form__label" for="annualDemand">
+                                <input class="form__input" type="text" id="annualDemand" name="annualDemand" autocomplete="off" required>
+                                <span class="form__span">
+                                    Спрос за период
+                                </span>
+                            </label>
+        
+                            <label class="form__label" for="orderCost">
+                                <input class="form__input" type="text" id="orderCost" name="orderCost" autocomplete="off" required>
+                                <span class="form__span">
+                                    Стоимость заказа
+                                </span>
+                            </label>
+                        </div>
+                        <div class="inputs__right">
+                            <label class="form__label" for="holdingCost">
+                                <input class="form__input" type="text" id="holdingCost" name="holdingCost" autocomplete="off" required>
+                                <span class="form__span">
+                                    Издержки хранения единицы товара
+                                </span>
+                            </label>
+        
+                            <label class="form__label" for="processingTime">
+                                <input class="form__input" type="text" id="processingTime" name="processingTime" autocomplete="off" required>
+                                <span class="form__span">
+                                    Время обработки заказа
+                                </span>
+                            </label>
+        
+                            <button class="form__button" type="submit">Рассчитать</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </section>
-
-        <div id="chartContainer" style="width: 50%; height: 400px;"></div>
 
     </div>
 </body>
