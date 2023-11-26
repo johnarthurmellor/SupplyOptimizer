@@ -127,6 +127,7 @@ body {
     border-radius: 10px;
     color: #e5e5e7;
     background-color: #2a3055;
+    transition: box-shadow .3s ease;
 }
 
 .form__label:not(:last-child) {
@@ -136,6 +137,7 @@ body {
 .form__input:focus {
     outline: 1px solid transparent;
     border: 1px solid transparent;
+    box-shadow: inset 2px 5px 10px #202542;
 }
 
 .form__input:focus + .form__span,
