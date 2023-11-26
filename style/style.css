@@ -2,6 +2,8 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 ::-webkit-scrollbar {
@@ -57,9 +59,15 @@ body {
 .container {
     width: 100%;
     margin: 0 auto;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
-.form__container {
+.hero {
+    width: 100%;
+}
+
+.hero__container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,23 +78,28 @@ body {
     border-radius: 20px;
     padding: 2.5rem;
     text-align: left;
-    width: 70vw;
+    width: 100%;
     min-width: 250px;
 }
 
 .form__title {
     color: #e9eaf0;
-    font-size: 5vw;
+    font-size: 85px;
     white-space: nowrap;
     font-weight: 700;
-  }
-  
-  .form__subtitle {
+    margin: 0;
+}
+
+.form__title_mobile {
+    display: none;
+}
+
+.form__subtitle {
     color: #e9eaf0;
     font-size: 24px;
     margin-top: 20px;
     margin-bottom: 2.5rem;
-  }
+}
 
 .inputs {
     width: 100%;
@@ -131,6 +144,10 @@ body {
     color: #e9eaf0;
 }
 
+.form__span_desktop::after {
+    content: 'Издержки хранения единицы товара';
+}
+
 .form__button {
     font-size: 30px;
     font-weight: 600;
@@ -160,23 +177,33 @@ body {
     transition: transform .3s ease;
 }
 
-.chart {
-    display: none;
-    margin: 0 auto;
-    margin-top: 120px;
-    padding-top: 40px;
-    width: 70vw;
-    min-height: 500px;
-    background-color: #535faa;
-    border-radius: 20px
+.chart__title {
+    color: #e9eaf0;
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-.chart__container {
+.chart {
+    display: none;
+    margin-top: 120px;
+    width: 100%;
+}
+
+.chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    margin: 0 auto;
-    width: 80%;
-    height: 60vh;
+    width: 95%;
     padding-bottom: 40px;
+}
+
+.chart__bg {
+    padding: 40px 20px;
+    background-color: #535faa;
+    border-radius: 20px;
 }
 
 .chart.active {
@@ -185,7 +212,7 @@ body {
 
 .chart__descr {
     width: 100%;
-    padding: 0 40px 30px 40px;
+    padding: 0 40px;
 }
 
 .chart__list {
@@ -195,5 +222,152 @@ body {
 }
 
 .chart__list li {
-    padding: 10px 0;
+    padding: 10px 0px;
+}
+
+@media (max-width: 1380px) {
+    .container {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .form__title {
+        font-size: 60px;
+    }
+
+    .inputs {
+        flex-direction: column;
+    }
+
+    .inputs__left,
+    .inputs__right {
+        width: 100%;
+    }
+
+    .form__label {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 775px) {
+    .body__background {
+        padding: 60px 0;
+    }
+
+    .container {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .chart-container {
+        display: none;
+    }
+
+    .chart {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 700px) {
+    .body__background {
+        padding: 40px 0;
+    }
+
+    .body {
+        font-size: 18px;
+    }
+
+    .form {
+        padding: 20px;
+    }
+
+    .form__title {
+        font-size: 45px;
+    }
+
+    .form__subtitle {
+        margin-bottom: 35px;
+        font-size: 20px;
+    }
+
+    .form__label:not(:last-child) {
+        margin-bottom: 30px;
+    }
+
+    .form__label {
+        margin-bottom: 30px;
+    } 
+
+    .form__span {
+        font-size: 16px;
+        top: calc(100% / 3)
+    }
+
+    .form__input:focus + .form__span,
+    .form__span.active {
+        transform: translate(-15%, -2.4rem) scale(.68);
+        color: #e9eaf0;
+    }
+
+    .chart {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 426px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .form {
+        padding: 15px;
+    }
+
+    .form__title_desktop {
+        display: none;
+    }
+
+    .form__title_mobile {
+        display: block;
+    }
+
+    .form__title {
+        font-size: 50px;
+        white-space: wrap;
+    }
+
+    .form__span {
+        font-size: 14px;
+        top: calc(100% / 2.8)
+    }
+
+    .form__span_desktop::after {
+        content: 'Издержки хранения ед/т';
+    }
+
+    .form__input:focus + .form__span,
+    .form__span.active {
+        transform: translate(-15%, -2.3rem) scale(.68);
+        color: #e9eaf0;
+    }
+    
+    .chart {
+        margin-top: 40px;
+    }
+
+    .chart__bg {
+        padding: 20px 15px;
+    }
+
+    .chart__title {
+        margin-bottom: 15px;
+        font-size: 27px;
+    }
+
+    .chart__descr {
+        padding: 0;
+    }
 }

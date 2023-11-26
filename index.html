@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -13,30 +13,34 @@
 
 <body class="body">
     <div class="body__background">
-        <section class="form__section">
-            <div class="container form__container">
-                <form class="form">
-                    <div class="form__title">SupplyOptimizer</div>
-                    <div class="form__subtitle">Удобный инструмент для решения задач управления ресурсами</div>
+        <section class="hero">
+            <div class="container hero__container">
+                <form class="hero__form form">
+                    <h1 class="form__title form__title_desktop">SupplyOptimizer</h1>
+                    <h2 class="form__title form__title_mobile">Supply Optimizer</h2>
+                    <p class="form__subtitle">Удобный инструмент для решения задач управления ресурсами</p>
 
                     <div class="form__container inputs">
                         <div class="inputs__left">
                             <label class="form__label" for="periodDuration">
-                                <input class="form__input" type="text" id="periodDuration" name="periodDuration" autocomplete="off" required>
+                                <input class="form__input" type="text" id="periodDuration" name="periodDuration"
+                                    autocomplete="off" required>
                                 <span class="form__span">
                                     Длина периода в днях
                                 </span>
                             </label>
-        
+
                             <label class="form__label" for="annualDemand">
-                                <input class="form__input" type="text" id="annualDemand" name="annualDemand" autocomplete="off" required>
+                                <input class="form__input" type="text" id="annualDemand" name="annualDemand"
+                                    autocomplete="off" required>
                                 <span class="form__span">
                                     Спрос за период
                                 </span>
                             </label>
-        
+
                             <label class="form__label" for="orderCost">
-                                <input class="form__input" type="text" id="orderCost" name="orderCost" autocomplete="off" required>
+                                <input class="form__input" type="text" id="orderCost" name="orderCost"
+                                    autocomplete="off" required>
                                 <span class="form__span">
                                     Стоимость заказа
                                 </span>
@@ -44,19 +48,21 @@
                         </div>
                         <div class="inputs__right">
                             <label class="form__label" for="holdingCost">
-                                <input class="form__input" type="text" id="holdingCost" name="holdingCost" autocomplete="off" required>
-                                <span class="form__span">
-                                    Издержки хранения единицы товара
+                                <input class="form__input" type="text" id="holdingCost" name="holdingCost"
+                                    autocomplete="off" required>
+                                <span class="form__span form__span_desktop">
+                                    
                                 </span>
                             </label>
-        
+
                             <label class="form__label" for="processingTime">
-                                <input class="form__input" type="text" id="processingTime" name="processingTime" autocomplete="off" required>
+                                <input class="form__input" type="text" id="processingTime" name="processingTime"
+                                    autocomplete="off" required>
                                 <span class="form__span">
                                     Время обработки заказа
                                 </span>
                             </label>
-        
+
                             <button class="form__button" type="submit">Рассчитать</button>
                         </div>
                     </div>
@@ -64,37 +70,42 @@
             </div>
         </section>
         <section class="chart" id="chart__section">
-            <div class="chart__container">
-                <canvas id="chart"></canvas>
-            </div>
-            <div class="chart__descr">
-                <ul class="chart__list">
-                    <li>
-                        Рекомендуемое количество товара для заказа составляет 
-                        <span class="order-size"></span> 
-                        шт.
-                    </li>
-                    <li>
-                        Оптимальный средний уровень запаса составляет 
-                        <span class="average-inventory"></span> 
-                        шт.
-                    </li>
-                    <li>
-                        Рекомендуемый интервал между пополнениями запасов (в днях) составляет 
-                        <span class="replenishment-frequency-in-days"></span> 
-                        дн.
-                    </li>
-                    <li>
-                        Минимальный уровень товара для нового заказа составляет 
-                        <span class="reorder-point"></span> 
-                        шт.
-                    </li>
-                    <li>
-                        Общие складские издержки за год составят 
-                        <span class="annual-holding-costs"></span> 
-                        у.е.
-                    </li>
-                </ul>
+            <div class="container chart__container">
+                <div class="chart__bg">
+                    <h2 class="chart__title">Оптимальная стратегия заказа</h2>
+                    <div class="chart-container">
+                        <canvas id="chart"></canvas>
+                    </div>
+                    <div class="chart__descr">
+                        <ul class="chart__list">
+                            <li>
+                                Рекомендуемое количество товара для заказа составляет
+                                <span class="order-size"></span>
+                                шт.
+                            </li>
+                            <li>
+                                Оптимальный средний уровень запаса составляет
+                                <span class="average-inventory"></span>
+                                шт.
+                            </li>
+                            <li>
+                                Рекомендуемый интервал между пополнениями запасов (в днях) составляет
+                                <span class="replenishment-frequency-in-days"></span>
+                                дн.
+                            </li>
+                            <li>
+                                Минимальный уровень товара для нового заказа составляет
+                                <span class="reorder-point"></span>
+                                шт.
+                            </li>
+                            <li>
+                                Общие складские издержки за год составят
+                                <span class="annual-holding-costs"></span>
+                                у.е.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
     </div>

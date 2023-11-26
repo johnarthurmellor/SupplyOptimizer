@@ -214,7 +214,7 @@
                         }
                     },
                     title: {
-                      display: true,
+                      display: false,
                       text: 'Оптимальная стратегия заказа',
                       color: '#e9eaf0',
                       font: {
@@ -254,6 +254,8 @@
                 }
             }
           });
+
+          chart.canvas.parentNode.style.width = '100%';
 
           chart.canvas.addEventListener('wheel', function(e) {
             scroller(e, chart);
