@@ -1,3 +1,5 @@
+import { createChart } from './chart.js';
+
 (() => {
     function formatDate(date) {
         const dd = date.getDate().toString().padStart(2, '0');
@@ -71,13 +73,8 @@
     };
 
     const labels = document.querySelectorAll('.form__label'),
-          [periodDuration, annualDemand, orderCost, holdingCost, processingTime] = [
-            'periodDuration',
-            'annualDemand',
-            'orderCost',
-            'holdingCost',
-            'processingTime',
-          ].map((name) => document.querySelector(`.form__input[name="${name}"]`));
+          [periodDuration, annualDemand, orderCost, holdingCost, processingTime] = 
+          ['periodDuration','annualDemand','orderCost','holdingCost','processingTime',].map((name) => document.querySelector(`.form__input[name="${name}"]`));
 
     labels.forEach((label) => {
         const input = label.querySelector('.form__input');
@@ -138,78 +135,10 @@
         reorderPointTd.innerHTML = Math.floor(reorderPoint);
         annualHoldingCostsTd.innerHTML = Math.ceil(annualHoldingCosts);
 
-        const labels = getSupplyDays(yearDuration, processingTime.value, Math.floor(replenishmentFrequencyInDays)),
-              uniqueLabels = getUniqueDates(labels),
+        const uniqueLabels = getUniqueDates(getSupplyDays(yearDuration, processingTime.value, Math.floor(replenishmentFrequencyInDays))),
               dates = createChartData(yearDuration, processingTime.value, Math.floor(replenishmentFrequencyInDays), Math.ceil(orderSize), Math.floor(reorderPoint));
 
-        chart = new Chart(chartCanvas, {
-            type: 'line',
-            data: {
-                labels: uniqueLabels,
-                datasets: [{
-                    label: 'Количество товара',
-                    data: dates,
-                    borderWidth: 1,
-                    fill: false,
-                    borderColor: '#e9eaf0',
-                    pointStyle: 'circle',
-                    pointRadius: 5,
-                    pointHoverRadius: 10,
-                    tension: 0,
-                }],
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#e9eaf0',
-                            font: {
-                                family: 'Montserrat',
-                                size: 16,
-                            },
-                        },
-                    },
-                    title: {
-                        display: false,
-                        text: 'Оптимальная стратегия заказа',
-                        color: '#e9eaf0',
-                        font: {
-                            family: 'Montserrat',
-                            size: 30,
-                            style: 'normal',
-                            lineHeight: 1.2,
-                        },
-                    },
-                },
-                scales: {
-                    x: {
-                        min: 0,
-                        max: 6,
-                        ticks: {
-                            color: '#e9eaf0',
-                            font: {
-                                family: 'Montserrat',
-                                size: 14,
-                                style: 'normal',
-                                lineHeight: 1.2,
-                            },
-                        },
-                    },
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            color: '#e9eaf0',
-                            font: {
-                                family: 'Montserrat',
-                                size: 14,
-                                style: 'normal',
-                                lineHeight: 1.2,
-                            },
-                        },
-                    },
-                },
-            },
-        });
+        chart = createChart(chartCanvas, uniqueLabels, dates);
 
         chart.canvas.parentNode.style.width = '100%';
 
