@@ -145,6 +145,10 @@ import { createChart } from './chart.js';
         chart.canvas.addEventListener('wheel', (e) => {
             scroller(e, chart);
         });
+
+        document.getElementById('chart__section').scrollIntoView({
+            behavior: 'smooth',
+        });
     });
 
     function scroller(scroll, chart) {
